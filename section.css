@@ -5,6 +5,32 @@ html {
 *, ::after, ::before {
     box-sizing: inherit;
 }
-.section{
+
+.section {
     background-color: white;
+    padding: 20px;
+}
+
+.section__body {
+    background-color: gainsboro;
+    margin-bottom: 2px;
+    padding: 20px;
+}
+.section__body--flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media(max-width: 767px) {
+    .section__body--flex {
+        flex-direction: column;
+    }
+}
+
+.section__title {
+    padding: 20px;
+    font-weight: bold;
+    align-self: flex-start;
 }
