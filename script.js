@@ -11,6 +11,13 @@ console.log("hello");
         }
     ]
 }
+const addNewTask = (newTaskContent) => {
+    tasks.push({
+        content: newTaskContent,
+    });
+
+    render();
+};
 
 
 const render = () => {
@@ -33,12 +40,30 @@ const render = () => {
 
     bindEvents();
 };
+const onFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newTask = document.querySelector(".js-inputTask");
+    const newTaskContent = newTask.value.trim();
+
+    if (newTaskContent === "") {
+        return;
+    }
+
+    addNewTask(newTaskContent);
+    newTask.value = "";
+    newTask.focus();
+};
 
 const init = () => {
     render();
     const form = document.querySelector(".js-form");
 
+    form.addEventListener("submit", OnFormSubmit);
+
 }
+init();
+
 
 
 
