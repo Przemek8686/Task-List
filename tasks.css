@@ -1,11 +1,22 @@
-html {
-    box-sizing: border-box;
-}
-
-*, ::after, ::before {
-    box-sizing: inherit;
-}
-.tasks{
+.task {
     list-style: none;
     padding: 0;
+}
+
+.list__task {
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid hsl(0, 0%, 85%);
+    grid-gap: 10px;
+}
+
+.list__text {
+    padding: 0px 20px;
+}
+
+.list__text--done {
+    text-decoration: line-through;
 }
