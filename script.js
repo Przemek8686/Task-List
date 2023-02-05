@@ -86,23 +86,24 @@ console.log("hello");
         addNewTask(newTaskContent);
         newTask.value = "";
         newTask.focus();
-    };
+    }
 
-{
+
     const init = () => {
         render();
+
         const form = document.querySelector(".js-form");
 
-        form.addEventListener("submit", OnFormSubmit);
+        form.addEventListener("submit", onFormSubmit);
 
-    }
-   
- init();
+    };
 
-}
-
+    init();
 
 }
+
+
+
 
 
 
