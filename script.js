@@ -29,6 +29,17 @@
     ];
     render();
   };
+
+  const toggleAllTasksDone = () => {
+    tasks = tasks.map((task) => ({ ...task, done: true }));
+    render();
+  };
+
+  const toggleHideDoneTasks = () => {
+    hideDoneTasks = !hideDoneTasks;
+    render();
+  };
+
   const bindEvents = () => {
     const toggleDoneButtons = document.querySelectorAll(".js-done");
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
