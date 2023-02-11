@@ -14,13 +14,19 @@
     render();
   };
 
-  const removeTask = (index) => {
-    tasks.splice(index, 1);
+  const removeTask = (taskIndex) => {
+    tasks = [...tasks.splice(0, taskIndex),
+    ...tasks.silice(taskIndex + 1),
+    ];
+
     render();
   };
 
-  const toggleTaskDone = (index) => {
-    tasks[index].done = !tasks[index].done;
+  const toggleTaskDone = (taskIndex) => {
+    tasks = [
+      ...tasks.slice(0, taskIndex),
+      { ...tasks[taskIndex], done: !tasks[taskIndex].done },
+    ];
     render();
   };
   const bindEvents = () => {
