@@ -41,7 +41,7 @@
   };
   const bindRemoveEvents = () => {
     const removeButtons = document.querySelectorAll(".js-task-remove")
-    removeButtons.forEach((removeButtons, index) => {
+    removeButtons.forEach((removeButton, index) => {
       removeButton.addEventListener("click", () => {
         removeTask(index);
       });
@@ -60,14 +60,22 @@
   };
 
   const bindAllToggleAllEventsDone = () => {
-    const toggleAllDoneButton = document.querySelector(".js-hide-button");
+    const toggleAllDoneButton = document.querySelector(".js-all-done-button");
 
-    if (hideTasksButton) {
-      hideTasksButton.addEventListener("click", () => {
+    if (toggleAllDoneButton) {
+      toggleAllDoneButton.addEventListener("click", () => {
+        toggleAllTasksDone();
+      });
+    }
+  };
+   const bindHideDoneEvents = () => {
+    const hideTasksButton = document.querySelector(".js-hide-button");
+    if (hideTasksButton){
+      hideTasksButton.addEventListener("click", () =>{
         toggleHideDoneTasks();
       });
-    };
-  };
+    }
+   };
 
   const renderButtons = () => {
 
@@ -124,15 +132,9 @@
     bindRemoveEvents();
     bindEventsDone();
     bindHideDoneEvents();
+    bindAllToggleAllEventsDone();
 
   };
-
-
-
-
-
-
-
 
 
   const onFormSubmit = (event) => {
@@ -141,23 +143,22 @@
     const newTask = document.querySelector(".js-inputTask");
     const newTaskContent = newTask.value.trim();
 
-    if (newTaskContent === "") {
-      return;
-    }
+    if (newTaskContent !== "") {
+      addNewTask(newTaskContent);
+      newTask.value = "";
+      newTask.focus();
+    };
 
-    addNewTask(newTaskContent);
-    newTask.value = "";
-    newTask.focus();
+    const init = () => {
+      render();
+
+      const form = document.querySelector(".js-form");
+
+      form.addEventListener("submit", onFormSubmit);
+    };
+
+    init();
+
   };
 
-  const init = () => {
-    render();
-
-    const form = document.querySelector(".js-form");
-
-    form.addEventListener("submit", onFormSubmit);
   };
-
-  init();
-
-};
