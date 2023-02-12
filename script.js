@@ -39,45 +39,101 @@
     hideDoneTasks = !hideDoneTasks;
     render();
   };
+  const bindRemoveEvents = () => {
+    const removeButtons = document.querySelectorAll(".js-task-remove")
+    removeButtons.forEach((removeButtons, index) => {
+      removeButton.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
+  };
 
-  const bindEvents = () => {
+
+  const bindEventsDone = () => {
     const toggleDoneButtons = document.querySelectorAll(".js-done");
+
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
       toggleDoneButton.addEventListener("click", () => {
         toggleTaskDone(index);
       });
     });
-
-    const removeButtons = document.querySelectorAll(".js-remove");
-
-    removeButtons.forEach((removeButtons, index) => {
-      removeButtons.addEventListener("click", () => {
-        removeTask(index);
-        console.log(removeButtons);
-      });
-    });
   };
 
-  const render = () => {
-    let htmlString = "";
+  const bindAllToggleAllEventsDone = () => {
+    const toggleAllDoneButton = document.querySelector(".js-hide-button");
 
-    for (const task of tasks) {
-      htmlString += `<li class="list__task">
-      <button class="button__done js-done">
-      ${task.done ? "✓" : ""}
+    if (hideTasksButton) {
+      hideTasksButton.addEventListener("click", () => {
+        toggleHideDoneTasks();
+      });
+    };
+  };
+
+  const renderButtons = () => {
+
+
+    let OptionButtonsHTML = "";
+
+    if (tasks.length !== 0) {
+      OptionButtonsHTML += `
+      <button class="list__button js-hide-button">
+        ${hideDoneTasks ? "Show" : "Hide"} completed
       </button>
-      <span class="list__text ${task.done ? "list__text--done" : ""}">
-      ${task.content}
-      </span>
-      <button class="button__remove js-remove">🗑</button>
-      </li>
-      `;
+      <button class="list__button js-all-done-button" 
+       ${tasks.every(({ done }) => done) ? "disabled" : ""}>
+       Complete all
+      </button>`;
     }
 
-    document.querySelector(".js-tasks").innerHTML = htmlString;
-
-    bindEvents();
+    document.querySelector(".js-list-buttons").innerHTML =
+      OptionButtonsHTML;
   };
+  const renderTasks = () => {
+
+    let htmlString = (task) => `
+
+      <li class="list__task ${task.done && hideDoneTasks ? "list__task--hidden" : ""
+      }"
+    >
+
+    <button
+      class="list__task--button list__task--button-toggleDone js-task-done"
+      alt="checkbox button"
+    >
+      <img class="list__task--button-icon $ {
+        task.done ? "" : "list__task--button-icon-hidden"}"
+        /></button>
+        <span class= "${task.done ? " list__task--content-done" : ""}"
+    > ${task.content}
+        </span>
+        <button class="list__task--button list__item--button-remove js-task-remove"
+        alt="delete button">
+          <img class= "list__task--button-icon"/>
+          </button>
+          </li>
+          `;
+
+    const taskContent = document.querySelector(".js-tasks");
+    taskContent.innerHTML = tasks.map(htmlString).join("");
+
+
+  };
+  const render = () => {
+    renderTasks();
+    renderButtons();
+    bindRemoveEvents();
+    bindEventsDone();
+    bindHideDoneEvents();
+
+  };
+
+
+
+
+
+
+
+
 
   const onFormSubmit = (event) => {
     event.preventDefault();
