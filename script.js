@@ -68,14 +68,14 @@
       });
     }
   };
-   const bindHideDoneEvents = () => {
+  const bindHideDoneEvents = () => {
     const hideTasksButton = document.querySelector(".js-hide-button");
-    if (hideTasksButton){
-      hideTasksButton.addEventListener("click", () =>{
+    if (hideTasksButton) {
+      hideTasksButton.addEventListener("click", () => {
         toggleHideDoneTasks();
       });
     }
-   };
+  };
 
   const renderButtons = () => {
 
@@ -109,14 +109,17 @@
       alt="checkbox button"
     >
       <img class="list__task--button-icon $ {
-        task.done ? "" : "list__task--button-icon-hidden"}"
-        /></button>
+        task.done ? "" : "list__task--button-icon-hidden"
+      }" src="images/done-icons.png"/>
+      </button>
+
         <span class= "${task.done ? " list__task--content-done" : ""}"
     > ${task.content}
         </span>
         <button class="list__task--button list__item--button-remove js-task-remove"
         alt="delete button">
-          <img class= "list__task--button-icon"/>
+          <img class= "list__task--button-icon" 
+          src = "images/delete-icons.png"/>
           </button>
           </li>
           `;
@@ -161,4 +164,4 @@
 
   };
 
-  };
+};
