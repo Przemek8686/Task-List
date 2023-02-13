@@ -32,6 +32,11 @@ const addNewTask = (newTaskContent) => {
   render();
   };
 
+  const toggleHideDoneTasks = () => {
+    hideDoneTasks = !hideDoneTasks;
+    render();
+  };
+
   
 
 const bindEvents = () => {
