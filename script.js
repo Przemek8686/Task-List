@@ -1,5 +1,5 @@
 let tasks = [];
-let hideDoneTasks = false;
+let hideDoneTask = false;
 
 
 
@@ -22,9 +22,39 @@ const toggleTaskDone = (taskIndex) => {
  tasks = [
   ...tasks.slice(0,taskIndex),
   {...tasks[taskIndex],done: !tasks[taskIndex].done, },
+  ...tasks.slice(taskIndex + 1),
  ];
   render();
 };
+
+const markAllTasksDone = () =>{
+  tasks = tasks.map((task) =>({
+    ...task,
+    done:true,
+  }
+  ))
+render();
+};
+const hideDoneTasks = () => {
+  hideDoneTasks = !hideDoneTasks
+  render();
+};
+const focusOnSubmit = () => {
+  const newTask = document.querySelector(".js-newTask")
+  newTask.value = "";
+  newTask.focus();
+  render();
+};
+
+const removeButtonEvents = () => {
+  const removeButtons = document.querySelectorAll(".js-remove");
+removeButtons.forEach((removeButton, index)=>{
+  removeButton.addEventListener("click", ()=>{
+    removeTask(index);
+  });
+});
+  };
+  
 const bindEvents = () => {
   const toggleDoneButtons = document.querySelectorAll(".js-done");
   toggleDoneButtons.forEach((toggleDoneButton, index) => {
