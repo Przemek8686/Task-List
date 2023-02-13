@@ -54,14 +54,21 @@ removeButtons.forEach((removeButton, index)=>{
   });
 });
   };
-  
-const bindEvents = () => {
-  const toggleDoneButtons = document.querySelectorAll(".js-done");
-  toggleDoneButtons.forEach((toggleDoneButton, index) => {
-    toggleDoneButton.addEventListener("click", () => {
-      toggleTaskDone(index);
+  const toggleDoneButtonsEvents = () =>{
+    const toggleDoneButtons = document.querySelectorAll(".js-done");
+    toggleDoneButtons.forEach((toggleDoneButton, index)=>{
+      toggleDoneButton.addEventListener("click", () => {
+        toggleTaskDone(index);
+      });
     });
-  });
+
+  };
+  
+const bindEvents = () => { 
+  removeButtonEvents();
+  toggleDoneButtonsEvents();
+};
+  
 
   const removeButtons = document.querySelectorAll(".js-remove");
 
