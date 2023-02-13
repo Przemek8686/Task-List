@@ -1,74 +1,46 @@
 let tasks = [];
-let hideDoneTask = false;
+let hideDoneTasks = false;
 
 
-
-const addNewTask = (newTaskContent) => {
-  tasks = [...tasks,{content:newTaskContent}];
-  }
-
-  render();
-
-
-const removeTask = (index) => {
+const removeTask = (taskIndex) => {
   tasks = [
-    ...tasks.slice(0, index),
-    ...tasks.slice(index+1),
-];
+    ...tasks.slice(0, taskIndex),
+    ...tasks.slice(taskIndex + 1),
+  ];
   render();
 };
 
 const toggleTaskDone = (taskIndex) => {
- tasks = [
-  ...tasks.slice(0,taskIndex),
-  {...tasks[taskIndex],done: !tasks[taskIndex].done, },
-  ...tasks.slice(taskIndex + 1),
- ];
+  tasks = [
+    ...tasks.slice(0,taskIndex),
+    {...tasks[taskIndex].done,
+    },
+    ...tasks.slice(taskIndex + 1),
+  ];
   render();
 };
 
-const markAllTasksDone = () =>{
-  tasks = tasks.map((task) =>({
-    ...task,
-    done:true,
-  }
-  ))
-render();
-};
-const hideDoneTasks = () => {
-  hideDoneTasks = !hideDoneTasks
-  render();
-};
-const focusOnSubmit = () => {
-  const newTask = document.querySelector(".js-newTask")
-  newTask.value = "";
-  newTask.focus();
-  render();
-};
-
-const removeButtonEvents = () => {
-  const removeButtons = document.querySelectorAll(".js-remove");
-removeButtons.forEach((removeButton, index)=>{
-  removeButton.addEventListener("click", ()=>{
-    removeTask(index);
-  });
-});
+const addNewTask = (newTaskContent) => {
+  tasks = [...tasks, {content: newTaskContent}];
+  render();  
   };
-  const toggleDoneButtonsEvents = () =>{
-    const toggleDoneButtons = document.querySelectorAll(".js-done");
-    toggleDoneButtons.forEach((toggleDoneButton, index)=>{
-      toggleDoneButton.addEventListener("click", () => {
-        toggleTaskDone(index);
-      });
+  const markAllTaskDone = () => {
+    tasks = tasks.map((task) =>({
+      ...task,
+      done: true,
+    }));
+  render();
+  };
+
+  
+
+const bindEvents = () => {
+  const toggleDoneButtons = document.querySelectorAll(".js-done");
+  toggleDoneButtons.forEach((toggleDoneButton, index) => {
+    toggleDoneButton.addEventListener("click", () => {
+      toggleTaskDone(index);
     });
-
-  };
-  
-const bindEvents = () => { 
-  removeButtonEvents();
-  toggleDoneButtonsEvents();
-};
-  
+  });
 
   const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -125,6 +97,3 @@ const init = () => {
 };
 
 init();
-
-
-
