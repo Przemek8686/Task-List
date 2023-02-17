@@ -23,4 +23,14 @@
     padding: 0px 20px;
 }
 
+.tasks__button {
+border:none;
+color:white;
+width:30px;
+height:30px;
+margin:10px;
+transition:0.5s;
+cursor: pointer;
+}
+
 
