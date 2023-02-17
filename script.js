@@ -2,12 +2,8 @@
   let tasks = [];
   let hideDoneTasks = false;
 
-
   const removeTask = (taskIndex) => {
-    tasks = [
-      ...tasks.slice(0, taskIndex),
-      ...tasks.slice(taskIndex + 1),
-    ];
+    tasks = [...tasks.slice(0, taskIndex), ...tasks.slice(taskIndex + 1)];
     render();
   };
 
@@ -16,9 +12,9 @@
       ...tasks.slice(0, taskIndex),
       {
         ...tasks[taskIndex],
-        done: !tasks[taskIndex].done,
+        done: !tasks[taskIndex].done
       },
-      ...tasks.slice(taskIndex + 1),
+      ...tasks.slice(taskIndex + 1)
     ];
     render();
   };
@@ -30,7 +26,7 @@
   const markAllTaskDone = () => {
     tasks = tasks.map((task) => ({
       ...task,
-      done: true,
+      done: true
     }));
     render();
   };
@@ -58,10 +54,11 @@
     });
   };
 
-
   const renderTasks = () => {
-    const taskToHtml = task => `
-<li class="list__task ${task.done && hideDoneTasks ? " list__task--hidden" : ""} js-task">
+    const taskToHtml = (task) => `
+<li class="list__task ${
+      task.done && hideDoneTasks ? " list__task--hidden" : ""
+    } js-task">
       <button class="tasks__button tasks__button--toggleDone js-toggleDone">
       ${task.done ? "✓" : ""}
       </button>
@@ -72,10 +69,8 @@
       </li>
       `;
 
-
     const tasksElement = document.querySelector(".js-tasks");
     tasksElement.innerHTML = tasks.map(taskToHtml).join("");
-
   };
 
   const renderButtons = () => {
@@ -83,7 +78,6 @@
     if (!tasks.length) {
       buttonsElement.innerHTML = "";
       return;
-
     }
     buttonsElement.innerHTML = `
  <button class= "buttons__button js-toggleHideDoneTasks">
@@ -99,12 +93,12 @@
     const markAllDoneButton = document.querySelector(".js-markAllDone");
     if (markAllDoneButton) {
       markAllDoneButton.addEventListener("click", markAllTaskDone);
-
     }
-    const toggleHideDoneTasksButton = document.querySelector(".js-toggleHideDoneTasks");
+    const toggleHideDoneTasksButton = document.querySelector(
+      ".js-toggleHideDoneTasks"
+    );
     if (toggleHideDoneTasksButton) {
       toggleHideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
-
     }
   };
 
@@ -125,7 +119,6 @@
     if (newTaskContent !== "") {
       addNewTask(newTaskContent);
       newTask.value = "";
-
     }
     newTask.focus();
   };
@@ -140,4 +133,3 @@
 
   init();
 };
-

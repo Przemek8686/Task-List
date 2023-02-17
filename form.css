@@ -3,43 +3,44 @@
     align-items: center;
     width: 100%;
     gap: 20px;
-}
-
-@media(max-width: 767px) {
+  }
+  
+  @media (max-width: 767px) {
     .form {
-        gap: 20px;
-        grid-template-columns: 1fr;
+      gap: 20px;
+      grid-template-columns: 1fr;
     }
-}
-
-.form__input {
+  }
+  
+  .form__input {
     padding: 10px;
     border: 5px solid hsl(gray);
     flex-grow: 1;
-}
-
-.form__button {
+  }
+  
+  .form__button {
     padding: 10px;
     border: 0;
     background-color: teal;
     color: white;
     transition: 0.6s;
-    cursor:pointer;
-}
-
-.form__button:hover {
-    color:white;
-    transform:scale(1.1);
+    cursor: pointer;
+  }
+  
+  .form__button:hover {
+    color: white;
+    transform: scale(1.1);
     transition: 0.4s;
     background-color: hsl(180, 100%, 35%);
-}
-
-.form__button:active {
+  }
+  
+  .form__button:active {
     background: green;
-}
-
-@media(max-width: 767px) {
+  }
+  
+  @media (max-width: 767px) {
     .form__button {
-        width: 100%;
+      width: 100%;
     }
-}
+  }
+  
