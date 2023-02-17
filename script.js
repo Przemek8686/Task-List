@@ -50,7 +50,7 @@
   };
 
   const bindToggleDoneEvents = () => {
-    const toggleDoneButtons = document.querySelectorAll(".js-done");
+    const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
     toggleDoneButtons.forEach((toggleDoneButton, taskIndex) => {
       toggleDoneButton.addEventListener("click", () => {
         toggleTaskDone(taskIndex);
@@ -61,7 +61,7 @@
 
   const renderTasks = () => {
     const taskToHtml = task => `
-<li class="list__task${task.done && hideDoneTasks ? " list__task--hidden" : ""} js-task">
+<li class="list__task ${task.done && hideDoneTasks ? " list__task--hidden" : ""} js-task">
       <button class="tasks__button tasks__button--toggleDone js-toggleDone">
       ${task.done ? "✓" : ""}
       </button>
@@ -79,7 +79,7 @@
   };
 
   const renderButtons = () => {
-    const buttonsElement = document.querySelector("js-buttons");
+    const buttonsElement = document.querySelector(".js-buttons");
     if (!tasks.length) {
       buttonsElement.innerHTML = "";
       return;

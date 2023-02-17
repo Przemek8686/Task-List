@@ -1,6 +1,9 @@
-.task{
+.tasks{
     list-style: none;
-    padding: 0;
+    padding: 30px;
+    width:100%;
+    margin:0;
+   
 }
 
 .list__task {
@@ -15,12 +18,14 @@
 .list__task--hidden{
     display:none;
 }
-.list__task--content-done{
-    text-decoration: line-through;
-}
+
+
 
 .list__text {
     padding: 0px 20px;
+}
+.list__text--done{
+    text-decoration: line-through;
 }
 
 .tasks__button {
@@ -32,5 +37,28 @@ margin:10px;
 transition:0.5s;
 cursor: pointer;
 }
+.tasks__button--toggleDone{
+    background-color:hsl(120, 100%, 25%);   
+}
+.tasks__button--toggleDone:hover {
+    background-color: hsl(120, 100%, 35%);
+}
+.tasks__button--toggleDone:active {
+    background-color: hsl(120, 100%, 40%);
+}
+
+.tasks__button--remove {
+    background-color: hsl(0, 100%, 40%);
+}
+
+.tasks__button--remove:hover {
+    background-color: hsl(0, 100%, 50%);
+}
+
+.tasks__button--remove:active {
+    background-color: hsl(0, 100%, 60%);
+}
+
+
 
 
