@@ -23,7 +23,7 @@
     <script defer src="./script.js"></script>
     <title>To-Do list</title>
     <link rel="icon" href="images/icon2.png">
-    
+
 
 </head>
 
@@ -36,23 +36,25 @@
             <header class="header">
                 <h2 class="section__title">Add New Task</h2>
             </header>
-            <div class="section__body">
-                <form class="form js-form">
-                    <input class="form__input js-inputTask" type="text" placeholder="Wpisz nowe zadanie" autofocus>
-                    <button class="form__button js-inputButton">Add Task</button>
-                </form>
-            </div>
+
+            <form class="form js-form">
+                <input class="form__input js-inputTask" type="text" placeholder="Wpisz nowe zadanie" autofocus>
+                <button class="form__button">Add Task</button>
+            </form>
         </section>
         <section class="section">
             <header class="header">
+                <div class="buttons js-buttons"></div>
+                <button class="buttons_button js-toggleHideDoneTasks">Ukryj Ukończone</button>
+                <button class="buttons_button js-markAllDone">Ukończ Wszystkie</button>
                 <h3 class="section__title section__body--flex">Tasks List</h3>
             </header>
-            <div class="button "></div>
+
             <div class="section__body">
                 <ul class="task js-tasks"></ul>
             </div>
         </section>
-    </main> 
+    </main>
 </body>
 
 </html>

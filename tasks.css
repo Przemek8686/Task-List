@@ -1,4 +1,4 @@
-.task {
+.task{
     list-style: none;
     padding: 0;
 }
@@ -24,30 +24,3 @@
 }
 
 
-.list--buttons{
-    display: flex;
-    flex-wrap: wrap;
-}
-.list__button{
-    border: none;
-    cursor:pointer;
-    background: transparent;
-    color: teal;
-    transition:0.4s;
-}
-@media(max-with:767px){
-    .list__button{
-        width: 100%;
-        margin: 20px;
-    }
-}
-.list__button:hover{
-    color:hsl(180, 100%, 32%) ;
-}
-.list__button:active{
-    color:hsl(180, 100%, 48%) ;
-}
-.list__button:disabled{
-    color:#c1b9b9;
-    cursor: default;
-}
