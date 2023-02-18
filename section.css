@@ -34,3 +34,6 @@ html {
     font-weight: bold;
     align-self: flex-start;
 }
+.section__header {
+    font-weight: bold;
+}
