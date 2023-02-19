@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="images/share2.png">
     <link href="./style.css" rel="stylesheet">
-    <link href="./container.css" rel="stylesheet">
     <link href="./section.css" rel="stylesheet">
     <link href="./form.css" rel="stylesheet">
     <link href="./header.css" rel="stylesheet">
@@ -27,29 +26,25 @@
 </head>
 
 <body class="body">
-    <main class="container">
-        <header>
-            <h1 class="section__header">Tasks List</h1>
+    <header>
+        <h1>Lista Zadań</h1>
+    </header>
+    <section class="section">
+        <h2 class="section__header">Dodaj nowe zadanie</h2>
+        <form class="form js-form">
+            <input class="form__input js-inputTask" placeholder="Wpisz nowe zadanie" autofocus />
+            <button class="form__button">Dodaj zadanie</button>
+        </form>
+    </section>
+    <section class="section section--under">
+        <header class="section__lowerHeader">
+            <h2 class="section__title js-buttons">Lista zadań</h2>
+            <div class="buttons"></div>
         </header>
-        <section class="section">
-            <h2 class="section__title">Add New Task</h2>
-            <form class="form js-form">
-                <input class="form__input js-inputTask" type="text" placeholder="Wpisz nowe zadanie" autofocus>
-                <button class="form__button">Add Task</button>
-            </form>
-        </section>
-        <section class="section">
-            <header class="section__header">
-                <div class="buttons js-buttons"></div>
-                <button class="buttons__button js-toggleHideDoneTasks"></button>
-                <button class="buttons__button js-markAllDone"></button>
-                <h3 class="section__title section__body--flex">Tasks List</h3>
-            </header>
-            <div class="section__body">
-                <ul class="tasks js-tasks"></ul>
-            </div>
-        </section>
-    </main>
+        <ul class="list__tasks js-tasks"></ul>
+        </div>
+    </section>
+
 </body>
 
 </html>

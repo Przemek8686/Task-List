@@ -5,9 +5,12 @@ html {
 *, ::after, ::before {
     box-sizing: inherit;
 }
-.body {
+ .body {
     font-family: 'Lato', sans-serif;
     font-family: 'Merriweather Sans', sans-serif;
-    background-color:gainsboro;
+    background-color:rgb(219, 219, 219);
     word-break: break-word;
+    max-width: 900px;
+    margin:auto;
+    padding: 20px;
 }
