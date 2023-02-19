@@ -1,39 +1,40 @@
-html {
-    box-sizing: border-box;
-}
-
-*, ::after, ::before {
-    box-sizing: inherit;
-}
-
 .section {
     background-color: white;
-    padding: 20px;
+
 }
 
-.section__body {
-    background-color: gainsboro;
-    margin-bottom: 2px;
+.section__header {
+    font-size: 20px;
     padding: 20px;
-}
-.section__body--flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    margin: 0;
+    border-bottom: 1px solid hsl(o, 0%, 87%);
+
 }
 
-@media(max-width: 767px) {
-    .section__body--flex {
-        flex-direction: column;
-    }
+.section--under {
+    border: 1px solid hsl(0, 0%, 87%);
+    margin-top: 10px;
 }
+
+
 
 .section__title {
-    padding: 20px;
-    font-weight: bold;
-    align-self: flex-start;
+    font-size: 20px;
+    margin: 0;
 }
-.section__header {
-    font-weight: bold;
+
+.section__lowerHeader {
+    border-bottom: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    justify-content: end;
+    align-items: center;
+    padding: 20px;
+}
+
+@media (max-width: 767px) {
+    .section__lowerHeader {
+        grid-template-columns: 1fr;
+    }
 }
